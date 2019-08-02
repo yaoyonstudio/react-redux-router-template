@@ -4,20 +4,14 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import MyMenu from '../components/common/MyMenu'
 
-import {
-  getPosts
-} from '../modules/post';
+import { getPosts } from '../modules/post';
 
 class Posts extends Component {
   constructor (props) {
     super(props)
     this.state = {}
   }
-	
-	componentDidMount () {
-    console.log(this.props)
-	}
-	
+
   render() {
     return (
       <div className="main Posts">
@@ -41,7 +35,7 @@ class Posts extends Component {
             })}
           </ul>
           <div className="action">
-            {this.props.isLoading && <img className="loadingImg" src="/img/loading.gif" />}
+            {this.props.isLoading && <img className="loadingImg" src="/img/loading.gif" alt="loading" />}
             <button className={'btn ' + (this.props.isLoading ? 'disabled' : '')} onClick={() => this.props.getPosts(this.props.page, this.props.per_page)} disabled={this.props.isLoading}>加载文章</button>
             <p className="desc">当前已加载文章数量: {this.props.posts.length}</p>
 				  </div>
